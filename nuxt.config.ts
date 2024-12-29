@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from '@nuxt/config'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -47,6 +48,15 @@ export default defineNuxtConfig({
       // Enable Server API documentation within NuxtHub
       openAPI: true,
     },
+    proxy: {
+        '/api/link/create': {
+          target: 'https://short.hzbz.us.kg/api/link/create',
+          changeOrigin: true,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
+        },
+      },
   },
 
   runtimeConfig: {
