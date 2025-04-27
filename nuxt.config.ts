@@ -55,6 +55,16 @@ export default defineNuxtConfig({
     experimental: {
       // Enable Server API documentation within NuxtHub
       openAPI: true,
+      headers: [
+        {
+          source: "/*",  // 匹配所有路由
+          headers: [
+            { key: "Access-Control-Allow-Origin", value: "*" },  // 允许所有来源
+            { key: "Access-Control-Allow-Methods", value: "GET, POST, OPTIONS" },
+            { key: "Access-Control-Allow-Headers", value: "Content-Type, Authorization" },
+          ]
+        }
+      ]
     },
   },
 
